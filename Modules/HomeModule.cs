@@ -1,5 +1,6 @@
 using Nancy;
 using ToDoList.Objects;
+using System.Collections.Generic;
 
 namespace ToDoList
 {
@@ -9,7 +10,7 @@ namespace ToDoList
     {
       Get["/"] = _ => View["index.cshtml"];
       Get["/view_all_task"] = _ => {
-        Task newTask = new Task(Request.Query["new-task"]);
+        List<string> allTasks = Task.GetAll();
         return View["view_all_task.cshtml", newTask];
       };
       Post["/task_added"] = _ => {
