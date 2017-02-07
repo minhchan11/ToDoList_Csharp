@@ -1,9 +1,12 @@
+using System.Collections.Generic;
+
 namespace ToDoList.Objects
 {
   public class Task
   {
     private string _description;
-    private static List<string> _instances = new List<string> {};
+    private static List<string> _instances = new List<string>{};
+
     public Task (string description)
     {
       _description = description;
