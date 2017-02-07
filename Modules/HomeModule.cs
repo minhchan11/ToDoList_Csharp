@@ -12,6 +12,11 @@ namespace ToDoList
         Task newTask = new Task(Request.Query["new-task"]);
         return View["view_all_task.cshtml", newTask];
       };
+      Post["/task_added"] = _ => {
+        Task newTask = new Task (Request.Form["new-task"]);
+        newTask.Save();
+        return View["outputList.cshtml", newTask];
+      };
     }
   }
 }
