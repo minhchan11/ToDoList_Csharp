@@ -40,7 +40,7 @@ namespace ToDoList
         return View ["category_tasks_form.cshtml", model];
       };
       Post["/tasks"] = _ => {
-        Dictionary<string,object> model = new Dictionary<string,object> {};
+        Dictionary<string,object> model = new Dictionary<string,object>();
         Category selectedCategory = Category.Find(Request.Form["category-id"]);
         List<Task> categoryTasks = selectedCategory.GetTasks();
         string taskDescription = Request.Form["task-description"];
